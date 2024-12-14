@@ -1,0 +1,81 @@
+// function Posts({ posts, loading }) {
+//   if (loading) {
+//     return <h2>Loading...</h2>;
+//   }
+
+//   return (
+//     <ul className='list-group mb-4'>
+//       {posts.map((post) => (
+//         <li key={post.id} className='list-group-item'>
+//           {post.title}
+//         </li>
+//       ))}
+//     </ul>
+//   );
+// }
+
+// export default Posts;
+
+////////////
+
+// function Pagination({ postsPerPage, totalPosts, paginate }) {
+//   const pageNumbers = [];
+
+//   for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
+//     pageNumbers.push(i);
+//   }
+//   return (
+//     <nav>
+//       <ul className='pagination'>
+//         {pageNumbers.map((number) => (
+//           <li className='page-item' key={number}>
+//             <a href='#' onClick={() => paginate(number)} className='page-link'>
+//               {number}
+//             </a>
+//           </li>
+//         ))}
+//       </ul>
+//     </nav>
+//   );
+// }
+
+// export default Pagination;
+
+//////////////
+
+// function App() {
+//   const [posts, setPosts] = useState([]);
+//   const [loading, setLoading] = useState(false);
+//   const [currentPage, setCurrentPage] = useState(1);
+//   const [postsPerPage, setPostPerPage] = useState(10);
+
+//   useEffect(() => {
+//     const fetchPosts = async () => {
+//       setLoading(true);
+//       const res = await axios.get(
+//         'https://jsonplaceholder.typicode.com/todos?_limit=100'
+//       );
+//       setPosts(res.data);
+//       setLoading(false);
+//     };
+//     fetchPosts();
+//   }, []);
+
+//   // Change page
+//   const paginate = (pageNumber) => setCurrentPage(pageNumber)
+
+//   // Get current posts
+//   const indexOfLastPost = currentPage * postsPerPage;
+//   const indexOfFistPost = indexOfLastPost - postsPerPage;
+//   const currentPosts = posts.slice(indexOfFistPost, indexOfLastPost);
+
+//   return (
+//     <div className='container mt-5'>
+//       <h1 className='text-primary mb-3'>My Blog</h1>
+//       <Posts posts={currentPosts} loading={loading} />
+//       <Pagination postsPerPage={postsPerPage} totalPosts={posts.length} paginate={paginate}/>
+//     </div>
+//   );
+// }
+
+// export default App;
