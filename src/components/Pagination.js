@@ -1,23 +1,24 @@
-function Pagination({ totalPosts, postPerPage, paginate }) {
-  const pageNumbers = [];
+function Pagination({ totalPosts, postsPerPage, setCurrentPage }) {
+  const pageNumber = [];
 
-  for (let i = 1; i <= Math.ceil(totalPosts / postPerPage); i++) {
-    pageNumbers.push(i);
+  for (let i = 1; i <= totalPosts / postsPerPage; i++) {
+    pageNumber.push(i);
+  }
+
+  function paginate(number) {
+    setCurrentPage(number);
   }
 
   return (
-    <nav>
-      <ul className='pagination'>
-        {pageNumbers.map((number) => (
-          <li onClick={() => paginate(number)} className='page-item' key={number}>
-            <a href='#' className='page-link'>
-              {number}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </nav>
+    <ul className='pagination mt-3'>
+      {pageNumber.map((number) => (
+        <li className='page-item'>
+          <a onClick={() => paginate(number)} className='page-link' href='#'>
+            {number}
+          </a>
+        </li>
+      ))}
+    </ul>
   );
 }
-
 export default Pagination;
