@@ -1,12 +1,26 @@
-function posts({ posts, loading }) {
+import { useState } from 'react';
+
+function Posts({ posts, loading }) {
+  const [active, setActive] = useState(null);
+
   if (loading) {
-    return <h2>Loading...</h2>
+    return <h2>Loading...</h2>;
   }
-  
+
+  function handleClick(id) {
+    setActive((preId) => (preId === id ? null : id));
+  }
+
   return (
     <ul className='list-group'>
       {posts.map((post) => (
-        <li className='list-group-item' key={post.id}>
+        <li
+          className={`list-group-item ${
+            active === post.id ? 'bg-light' : ''
+          } cursor-pointer`}
+          key={post.id}
+          onClick={() => handleClick(post.id)}
+        >
           {post.title}
         </li>
       ))}
@@ -14,4 +28,4 @@ function posts({ posts, loading }) {
   );
 }
 
-export default posts;
+export default Posts;

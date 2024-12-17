@@ -10,7 +10,7 @@ function Pagination({ totalPosts, postsPerPage, setCurrentPage }) {
   }
 
   return (
-    <ul className='pagination mt-3'>
+    <ul className='pagination mt-3 '>
       {pageNumbers.map((number) => (
         <li key={number} className='page-item'>
           <a onClick={() => paginate(number)} href='#' className='page-link'>

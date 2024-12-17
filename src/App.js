@@ -25,8 +25,8 @@ function App() {
   }, []);
 
   return (
-    <div className='container mt-4'>
-      <h1 className='text-primary mb-3'>My Blog</h1>
+    <div className='container mt-5 d-flex flex-column align-items-center '>
+      <h1 className='text-primary mb-4'>My Blog</h1>
       <Posts posts={currentPosts} loading={loading} />
       <Pagination
         totalPosts={posts.length}
