@@ -10,10 +10,7 @@ function Pagination({ totalPosts, postsPerPage, setCurrentPage }) {
   }
 
   return (
-    <ul
-      className='pagination position-absolute bottom-0 '
-      style={{ marginBottom: '80px' }}
-    >
+    <ul className='pagination position-absolute bottom-0 mb-5'>
       {pageNumbers.map((number) => (
         <li key={number} className='page-item'>
           <a onClick={() => paginate(number)} href='#' className='page-link'>
