@@ -1,8 +1,8 @@
-function posts({ loading, posts }) {
+function posts({ posts, loading }) {
   if (loading) {
-    return <h2>Loading...</h2>;
+    return <h2>Loading...</h2>
   }
-
+  
   return (
     <ul className='list-group'>
       {posts.map((post) => (
