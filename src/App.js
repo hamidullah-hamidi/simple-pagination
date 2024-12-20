@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import Posts from './components/Posts';
 import Pagination from './components/Pagination';
+import CounterLetter from './components/counter-letter';
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -33,6 +34,7 @@ function App() {
         setCurrentPage={setCurrentPage}
         postsPerPage={postsPerPage}
       />
+      <CounterLetter />
     </div>
   );
 }
