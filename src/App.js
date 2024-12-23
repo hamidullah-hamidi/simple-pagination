@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import Posts from './components/Posts';
 import Pagination from './components/Pagination';
-import CounterLetter from './components/counter-letter';
+import axios from 'axios';
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -17,9 +17,8 @@ function App() {
   useEffect(() => {
     async function fetchPosts() {
       setLoading(true);
-      const res = await fetch('https://jsonplaceholder.typicode.com/todos?_limit=100');
-      const data = await res.json();
-      setPosts(data);
+      const res = await axios.get('https://jsonplaceholder.typicode.com/todos?_limit=100');
+      setPosts(res.data);
       setLoading(false);
     }
     fetchPosts();
@@ -34,7 +33,6 @@ function App() {
         setCurrentPage={setCurrentPage}
         postsPerPage={postsPerPage}
       />
-      <CounterLetter />
     </div>
   );
 }
