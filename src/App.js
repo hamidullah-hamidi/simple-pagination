@@ -17,7 +17,9 @@ function App() {
   useEffect(() => {
     async function fetchPosts() {
       setLoading(true);
-      const res = await axios.get('https://jsonplaceholder.typicode.com/todos?_limit=100');
+      const res = await axios.get(
+        'https://jsonplaceholder.typicode.com/todos?_limit=100'
+      );
       setPosts(res.data);
       setLoading(false);
     }
