@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Posts from './components/Posts';
 import Pagination from './components/Pagination';
 import axios from 'axios';
+import './App.css'
 
 function App() {
   const [posts, setPosts] = useState([]);
